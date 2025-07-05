@@ -1,10 +1,10 @@
 pipeline{
 	agent any
-		stages("Build"){
+		stage("Build"){
 				steps{
 					echo "Start Building"
 					sh "npm install"
-					sh "npm run dev"
+					sh "npm run build"
 					echo "Building success"
 				}
 			}

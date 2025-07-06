@@ -22,9 +22,9 @@ pipeline{
 					// use withCredentials to inject SSH private key
 					sshagent(['ec2-ssh-key']){
 						echo "copying build artifacts to EC2"
-						sh "scp -o StrictHostCheckingKey=no -r dist/* ubuntu@13.234.21.161:/var/www/html"
+						sh "scp -o StrictHostKeyChecking=no -r dist/* ubuntu@13.234.21.161:/var/www/html"
 						echo "Restarting web server on EC2"
-						sh "ssh "-o StrictHostCheckingKey=no ubuntu@13.234.21.161 'sudo systemctl restart nginx'"
+						sh "ssh "-o StrictHostKeyChecking=no ubuntu@13.234.21.161 'sudo systemctl restart nginx'"
 					}
 					echo "Deployment completed"
 

@@ -24,7 +24,7 @@ pipeline{
 						echo "copying build artifacts to EC2"
 						scp '-o StrictHostCheckingKey=no -r dist/* ubuntu@13.234.21.161:/var/www/html'
 						echo "Restarting web server on EC2"
-						ssh '-o StrictHostCheckingKey=no ubuntu@13.234.21.161 'sudo systemctl restart nginx'
+						ssh '-o StrictHostCheckingKey=no ubuntu@13.234.21.161 'sudo systemctl restart nginx''
 					}
 					echo "Deployment completed"
 
